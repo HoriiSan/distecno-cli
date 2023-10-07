@@ -28,6 +28,12 @@ export function TaskProvider({ children }) {
     };
 
     const createTask = async (task) => {
+        task.price = parseInt(task.price);
+        task.promPrice = parseInt(task.promPrice);
+        task.code = parseInt(task.code);
+        console.log(task.imgs);
+        console.log(task.front);
+
         const res = await createTaskRequest(task);
         console.log(res);
     };

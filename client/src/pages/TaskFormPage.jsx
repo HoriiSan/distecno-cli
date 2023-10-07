@@ -13,8 +13,13 @@ function TaskFormPage() {
         async function loadTask() {
             if (params.id) {
                 const task = await getTask(params.id);
+                setValue('active', task.active);
                 setValue('title', task.title);
+                setValue('tags', task.tags);
+                setValue('mercadoLibre', task.mercadoLibre);
+                setValue('price', task.price);
                 setValue('description', task.description);
+                setValue('promPrice', task.promPrice);
             }
         }
         loadTask();
@@ -34,12 +39,62 @@ function TaskFormPage() {
         <div className="flex h-[calc(100vh-100px)] items-center justify-center">
             <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
                 <form onSubmit={onSubmit}>
-                    <label htmlFor="title">Title</label>
+                    <button className="bg-indigo-500 px-3 py-2 mb-3 rounded-md block">
+                        Save
+                    </button>
+
+                    <input
+                        type="hidden"
+                        value={1}
+                        {...register('code')}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
+
+                    <label htmlFor="active">Disponibilidad</label>
+                    <input
+                        type="checkbox"
+                        {...register('active')}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
+
+                    <label htmlFor="title">Titulo</label>
                     <input
                         type="text"
-                        placeholder="Title"
+                        placeholder="Titulo"
                         {...register('title')}
                         autoFocus
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
+
+                    <label htmlFor="tags">Etiquetas</label>
+                    <input
+                        type="text"
+                        placeholder="Etiquetas"
+                        {...register('tags')}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
+
+                    <label htmlFor="mercadoLibre">MercadoLibre</label>
+                    <input
+                        type="text"
+                        placeholder="MercadoLibre"
+                        {...register('mercadoLibre')}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
+
+                    <label htmlFor="price">Precio</label>
+                    <input
+                        type="number"
+                        placeholder="Precio"
+                        {...register('price')}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
+
+                    <label htmlFor="price">Precio de promoción</label>
+                    <input
+                        type="number"
+                        placeholder="Precio de promoción"
+                        {...register('promPrice')}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
                     />
 
@@ -51,10 +106,29 @@ function TaskFormPage() {
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
                     ></textarea>
 
-                    <button className="bg-indigo-500 px-3 py-2 rounded-md">
-                        Save
-                    </button>
+                    <label htmlFor="front">Imagen de portada</label>
+                    <input
+                        type="file"
+                        {...register('front')}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
+
+                    <label htmlFor="imgs">Imagen adicional</label>
+
+                    <input
+                        type="file"
+                        {...register('imgs')}
+                        className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+                    />
                 </form>
+                <button
+                    className="bg-green-500 px-3 py-2 rounded-md"
+                    onClick={() => {
+                        console.log('clicked');
+                    }}
+                >
+                    Agregar imagen
+                </button>
             </div>
         </div>
     );

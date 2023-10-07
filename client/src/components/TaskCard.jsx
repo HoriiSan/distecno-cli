@@ -23,7 +23,6 @@ function TaskCard({ task }) {
             </div>
             <h1 className="text-2xl font-bold">{task.title}</h1>
             <p className="text-slate-300">{task.description}</p>
-            <p>{new Date(task.date).toLocaleDateString()}</p>
         </div>
     );
 }

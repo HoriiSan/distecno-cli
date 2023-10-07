@@ -1,28 +1,50 @@
 import mongoose from 'mongoose';
 
-const taskSchema = new mongoose.Schema(
-    {
-        title: {
-            type: String,
-            require: true,
-        },
-        description: {
-            type: String,
-            require: true,
-        },
-        date: {
-            type: Date,
-            default: Date.now,
-        },
-        user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
-            require: true,
-        },
+const taskSchema = new mongoose.Schema({
+    code: {
+        type: Number,
+        require: true,
     },
-    {
-        timestamps: true,
-    }
-);
+    active: {
+        type: Boolean,
+        require: true,
+    },
+    title: {
+        type: String,
+        require: true,
+    },
+    front: {
+        type: String,
+        require: true,
+    },
+    imgs: {
+        type: Array,
+        require: true,
+    },
+    tags: {
+        type: Array,
+        require: true,
+    },
+    mercadoLibre: {
+        type: String,
+        require: true,
+    },
+    price: {
+        type: Number,
+        require: true,
+    },
+    description: {
+        type: String,
+        require: true,
+    },
+    features: {
+        type: Object,
+        require: true,
+    },
+    promPrice: {
+        type: Number,
+        require: true,
+    },
+});
 
 export default mongoose.model('Task', taskSchema);
