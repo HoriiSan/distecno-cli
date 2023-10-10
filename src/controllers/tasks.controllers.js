@@ -1,10 +1,27 @@
 import Task from '../models/task.model.js';
+import Order from '../models/order.model.js';
+
+export const getOrder = async (req, res) => {
+    try {
+        const orders = await Order.find();
+        res.json(orders);
+    } catch (error) {
+        return res.status(500).json({ message: 'Something went wrong' });
+    }
+};
+
+export const deleteOrder = async (req, res) => {
+    try {
+        const order = await Order.findByIdAndDelete(req.params.id);
+        if (!order) return res.status(404).json({ message: 'Task not found' });
+        return res.status(204).json();
+    } catch (error) {
+        return res.status(404).json({ message: 'Task not found' });
+    }
+};
 
 export const getTasks = async (req, res) => {
     try {
-        // const tasks = await Task.find({
-        //     user: req.user.id,
-        // }).populate('user');
         const tasks = await Task.find();
         res.json(tasks);
     } catch (error) {
@@ -22,28 +39,26 @@ export const createTasks = async (req, res) => {
             tags,
             mercadoLibre,
             price,
+            features,
             description,
-            // features,
             promPrice,
         } = req.body;
 
         const tasks = await Task.find();
-        const codes = tasks.map((task) => {
-            return task.code;
-        });
 
-        const newCode = () => {
-            if (codes) return Math.max(...codes) + 1;
-            return 1;
-        };
+        const newCode = tasks.length + 170;
+        console.log(newCode);
 
         const newTask = new Task({
-            code: newCode(),
+            code: newCode,
             active,
             title,
+            front,
+            imgs,
             tags,
             mercadoLibre,
             price,
+            features,
             description,
             promPrice,
         });

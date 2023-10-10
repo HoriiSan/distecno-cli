@@ -5,6 +5,8 @@ import {
     deleteTaskRequest,
     getTaskRequest,
     updateTaskRequest,
+    getOrdersRequest,
+    deleteOrderRequest,
 } from '../api/tasks';
 
 const TaskContext = createContext();
@@ -21,6 +23,24 @@ export const useTasks = () => {
 
 export function TaskProvider({ children }) {
     const [tasks, setTasks] = useState([]);
+    const [orders, setOrders] = useState([]);
+
+    const getOrders = async () => {
+        const res = await getOrdersRequest();
+        setOrders(res.data);
+    };
+
+    const deleteOrder = async (id) => {
+        try {
+            const res = await deleteOrderRequest(id);
+            console.log(res);
+
+            if (res.status == 204)
+                setOrders(orders.filter((order) => order._id != id));
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const getTasks = async () => {
         const res = await getTasksRequest();
@@ -28,12 +48,6 @@ export function TaskProvider({ children }) {
     };
 
     const createTask = async (task) => {
-        task.price = parseInt(task.price);
-        task.promPrice = parseInt(task.promPrice);
-        task.code = parseInt(task.code);
-        console.log(task.imgs);
-        console.log(task.front);
-
         const res = await createTaskRequest(task);
         console.log(res);
     };
@@ -67,11 +81,14 @@ export function TaskProvider({ children }) {
         <TaskContext.Provider
             value={{
                 tasks,
+                orders,
+                deleteOrder,
                 createTask,
                 getTasks,
                 deleteTask,
                 getTask,
                 updateTask,
+                getOrders,
             }}
         >
             {children}

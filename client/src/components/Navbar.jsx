@@ -6,21 +6,28 @@ function Navbar() {
     return (
         <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
             <Link to={isAuthenticated ? '/tasks' : '/'}>
-                <h1 className="text-2xl font-bold">Task Manager</h1>
+                <h1 className="text-2xl font-bold">
+                    Administrador de productos
+                </h1>
             </Link>
 
             <ul className="flex gap-x-2">
                 {isAuthenticated ? (
                     <>
                         <li>
-                            <p>Welcome {user.username}</p>
+                            <Link
+                                to="/add-task"
+                                className="bg-indigo-500 px-4 py-2 rounded-sm"
+                            >
+                                Añadir
+                            </Link>
                         </li>
                         <li>
                             <Link
-                                to="/add-task"
-                                className="bg-indigo-500 px-4 py-1 rounded-sm"
+                                to="/orders"
+                                className="bg-indigo-500 px-4 py-2 rounded-sm"
                             >
-                                Add task
+                                Pedidos
                             </Link>
                         </li>
                         <li>
@@ -29,9 +36,9 @@ function Navbar() {
                                 onClick={() => {
                                     logout();
                                 }}
-                                className="bg-indigo-500 px-4 py-1 rounded-sm"
+                                className="bg-indigo-500 px-4 py-2 rounded-sm"
                             >
-                                Logout
+                                Salir
                             </Link>
                         </li>
                     </>
@@ -40,17 +47,9 @@ function Navbar() {
                         <li>
                             <Link
                                 to="/login"
-                                className="bg-indigo-500 px-4 py-1 rounded-sm"
+                                className="bg-indigo-500 px-4 py-2 rounded-sm"
                             >
-                                Login
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/register"
-                                className="bg-indigo-500 px-4 py-1 rounded-sm"
-                            >
-                                Register
+                                Iniciar Sesión
                             </Link>
                         </li>
                     </>

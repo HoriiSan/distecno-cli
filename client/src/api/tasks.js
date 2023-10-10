@@ -1,5 +1,9 @@
 import axios from './axios';
 
+export const getOrdersRequest = () => axios.get(`/orders`);
+
+export const deleteOrderRequest = (id) => axios.delete(`/orders/${id}`);
+
 export const getTasksRequest = () => axios.get(`/tasks`);
 
 export const getTaskRequest = (id) => axios.get(`/tasks/${id}`);

@@ -29,42 +29,35 @@ function LoginPage() {
                         {error}
                     </div>
                 ))}
-                <h1 className="text-2xl font-bold">Login</h1>
+                <h1 className="text-2xl font-bold">Iniciar Sesión</h1>
 
                 <form onSubmit={onSubmit}>
                     <input
                         type="email"
                         {...register('email', { required: true })}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-                        placeholder="Email"
+                        placeholder="Correo"
                     />
                     {errors.email && (
-                        <p className="text-red-500">Email is required</p>
+                        <p className="text-red-500">Email requerido</p>
                     )}
 
                     <input
                         type="password"
                         {...register('password', { required: true })}
                         className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-                        placeholder="Password"
+                        placeholder="Contraseña"
                     />
                     {errors.password && (
-                        <p className="text-red-500">Password is required</p>
+                        <p className="text-red-500">Contraseña requerida</p>
                     )}
                     <button
                         type="submit"
-                        className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-md"
+                        className="w-full bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 mt-2 rounded-md"
                     >
-                        Login
+                        Iniciar Sesión
                     </button>
                 </form>
-
-                <p className="flex gap-x-2 justify-between">
-                    Dont have an account?
-                    <Link to="/register" className="text-sky-500">
-                        Sign up
-                    </Link>
-                </p>
             </div>
         </div>
     );

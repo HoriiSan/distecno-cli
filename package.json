@@ -5,7 +5,10 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "dev": "nodemon src/index.js"
+        "dev": "nodemon src/index.js",
+        "start": "npm-run-all -p start-api start-client",
+        "start-client": "serve client/dist",
+        "start-api": "node src/index.js"
     },
     "author": "",
     "license": "ISC",
@@ -18,6 +21,8 @@
         "mongoose": "^7.5.2",
         "morgan": "^1.10.0",
         "nodemon": "^3.0.1",
+        "npm-run-all": "^4.1.5",
+        "serve": "^14.2.1",
         "zod": "^3.22.2"
     }
 }

@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage';
 import ProtectedRoute from './ProtectedRoute';
 import { TaskProvider } from './context/TasksContext';
 import Navbar from './components/Navbar';
+import OrderPage from './pages/OrderPage';
 
 function App() {
     return (
@@ -41,6 +42,7 @@ function App() {
                                     path="/profile"
                                     element={<ProfilePage />}
                                 />
+                                <Route path="/orders" element={<OrderPage />} />
                             </Route>
                         </Routes>
                     </main>

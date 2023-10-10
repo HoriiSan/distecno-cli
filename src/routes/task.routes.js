@@ -6,11 +6,17 @@ import {
     deleteTask,
     updateTask,
     createTasks,
+    getOrder,
+    deleteOrder,
 } from '../controllers/tasks.controllers.js';
 import { validateSchema } from '../middlewares/validator.middleware.js';
 import { createTaskSchema } from '../schemas/task.schema.js';
 
 const router = Router();
+
+router.get('/orders', authRequired, getOrder);
+
+router.delete('/orders/:id', authRequired, deleteOrder);
 
 router.get('/tasks', authRequired, getTasks);
 

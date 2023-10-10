@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
 export const createTaskSchema = z.object({
-    code: z.number({
-        required_error: 'Code is required',
-    }),
+    // code: z.number({
+    //     required_error: 'Code is required',
+    // }),
     active: z.boolean({
         required_error: 'State is required',
     }),
@@ -13,12 +13,12 @@ export const createTaskSchema = z.object({
     front: z.string({
         required_error: 'Front image is required',
     }),
-    imgs: z.string({
-        required_error: 'Images is required',
-    }),
-    tags: z.string({
-        required_error: 'Tags is required',
-    }),
+    // imgs: z.array({
+    //     required_error: 'Images is required',
+    // }),
+    //tags: z.array({
+    //    required_error: 'Tags is required',
+    //}),
     mercadoLibre: z.string({
         required_error: 'MercadoLibre link is required',
     }),
