@@ -1,28 +1,30 @@
 {
-    "name": "nitto.com",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "name": "client",
+    "private": true,
+    "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev": "nodemon src/index.js",
-        "start": "npm-run-all -p start-api start-client",
-        "start-client": "serve client/dist",
-        "start-api": "node src/index.js"
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "start": "serve dist -s -n -L -p $PORT"
     },
-    "author": "",
-    "license": "ISC",
     "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "cookie-parser": "^1.4.6",
-        "cors": "^2.8.5",
-        "express": "^4.18.2",
-        "jsonwebtoken": "^9.0.2",
-        "mongoose": "^7.5.2",
-        "morgan": "^1.10.0",
-        "nodemon": "^3.0.1",
-        "npm-run-all": "^4.1.5",
-        "serve": "^14.2.1",
-        "zod": "^3.22.2"
+        "axios": "^1.5.1",
+        "js-cookie": "^3.0.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-hook-form": "^7.46.2",
+        "react-router-dom": "^6.16.0",
+        "serve": "^14.2.1"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.11",
+        "@vitejs/plugin-react": "^3.1.0",
+        "autoprefixer": "^10.4.16",
+        "postcss": "^8.4.30",
+        "tailwindcss": "^3.3.3",
+        "vite": "^4.2.0"
     }
 }
