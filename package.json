@@ -2,7 +2,7 @@
     "name": "client",
     "private": true,
     "version": "0.0.0",
-    "homepage": "http://horiisan.github.io/distecno-cliente",
+    "homepage": "http://horiisan.github.io/distecno-cli",
     "type": "module",
     "scripts": {
         "predeploy": "npm run build",
