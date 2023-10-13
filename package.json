@@ -2,7 +2,7 @@
     "name": "client",
     "private": true,
     "version": "0.0.0",
-    "homepage": "http://codehxh.github.io/distecno-client",
+    "homepage": "http://horiisan.github.io/distecno-cliente",
     "type": "module",
     "scripts": {
         "predeploy": "npm run build",
