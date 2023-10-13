@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContex';
 
 import RegisterPage from './pages/RegisterPage';
@@ -17,7 +17,7 @@ function App() {
     return (
         <AuthProvider>
             <TaskProvider>
-                <BrowserRouter>
+                <HashRouter>
                     <main className="container mx-auto px1">
                         <Navbar />
                         <Routes>
@@ -46,7 +46,7 @@ function App() {
                             </Route>
                         </Routes>
                     </main>
-                </BrowserRouter>
+                </HashRouter>
             </TaskProvider>
         </AuthProvider>
     );
